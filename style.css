@@ -1,0 +1,886 @@
+/* Custom Styles for FruitInfo Website */
+
+/* Font Family */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0c0f0a;
+}
+
+/* Navigation Button Styles */
+.nav-btn {
+    display: inline-block;
+    background-color: #800020;
+    color: #e8e8e8;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    min-width: 100px;
+    border: 1px solid #a00030;
+    box-shadow: 0 2px 4px rgba(128, 0, 32, 0.3);
+}
+
+.nav-btn:hover {
+    background-color: #600015;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4);
+}
+
+.nav-btn.active {
+    background-color: #600015;
+    box-shadow: 0 0 0 2px rgba(232, 232, 232, 0.5);
+    border-color: #e8e8e8;
+}
+
+/* Enhanced Fruit Card Styles */
+.fruit-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #2a302c;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    background: linear-gradient(145deg, #1a1f1c 0%, #212624 100%);
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.fruit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #800020, #e8e8e8, #800020);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: -200% 0; }
+    50% { background-position: 200% 0; }
+}
+
+.fruit-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fruit-card:hover {
+    border-color: #800020;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(128, 0, 32, 0.2),
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(232, 232, 232, 0.1);
+}
+
+.fruit-card.selected {
+    border-color: #e8e8e8;
+    box-shadow: 
+        0 25px 50px rgba(232, 232, 232, 0.15),
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(232, 232, 232, 0.2);
+    transform: scale(1.03);
+}
+
+/* Single Fruit View Styles */
+.single-fruit-view {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 70vh;
+    padding: 3rem 0;
+}
+
+.single-fruit-card {
+    max-width: 650px !important;
+    width: 100% !important;
+    transform: scale(1.08) !important;
+    margin: 0 auto !important;
+    padding: 2.5rem !important;
+    border-width: 3px !important;
+    background: linear-gradient(145deg, #1a1f1c 0%, #232826 50%, #1a1f1c 100%) !important;
+}
+
+/* Fixed Gradient Text Styles */
+.fruit-card .fruit-name {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #e8e8e8; /* Fallback color */
+}
+
+.fruit-card:hover .fruit-name {
+    background: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.single-fruit-card .fruit-name {
+    font-size: 2.75rem !important;
+    margin-bottom: 1.5rem !important;
+    color: #e8e8e8; /* Fallback color */
+}
+
+/* Apply gradient only to single fruit view fruit names */
+.single-fruit-card .fruit-name.gradient-text {
+    background: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.single-fruit-card .bg-\[\#800020\] {
+    background: linear-gradient(135deg, #800020 0%, #600015 100%) !important;
+    font-size: 1.125rem !important;
+    padding: 0.75rem 1.5rem !important;
+    border: 1px solid #a00030 !important;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3) !important;
+}
+
+.single-fruit-card .text-base {
+    font-size: 1.125rem !important;
+}
+
+.single-fruit-card .text-lg {
+    font-size: 1.25rem !important;
+}
+
+/* Grid View Styles */
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Enhanced Card Content */
+.fruit-card .p-5 {
+    padding: 1.75rem !important;
+}
+
+/* Nutrition Section Enhancement */
+.bg-\[\#2a302c\] {
+    background: linear-gradient(135deg, #2a302c 0%, #323834 100%) !important;
+    border: 1px solid #3a403c !important;
+    border-radius: 16px !important;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bg-\[\#2a302c\] h4 {
+    color: #e8e8e8 !important;
+    font-weight: 600;
+}
+
+/* Nutrition Value Highlight */
+.fruit-card .text-\[\#e8e8e8\] {
+    font-weight: 600;
+}
+
+.fruit-card .text-gray-400 {
+    color: #a0a0a0 !important;
+    font-weight: 500;
+}
+
+/* Family Badge Enhancement */
+.bg-\[\#800020\] {
+    background: linear-gradient(135deg, #800020 0%, #600015 100%) !important;
+    border: 1px solid #a00030;
+    box-shadow: 0 2px 8px rgba(128, 0, 32, 0.3);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+/* Click Indicator Enhancement */
+.click-indicator {
+    animation: pulse-glow 2s ease-in-out infinite;
+    background: linear-gradient(135deg, #2a302c 0%, #323834 100%);
+    border-radius: 12px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #3a403c;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        opacity: 0.7;
+        box-shadow: 0 0 0 rgba(128, 0, 32, 0);
+    }
+    50% { 
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(128, 0, 32, 0.3);
+    }
+}
+
+/* Nutrition Grid Enhancement */
+.grid.grid-cols-2 {
+    gap: 0.75rem;
+}
+
+.grid.grid-cols-2 > div {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid.grid-cols-2 > div:last-child,
+.grid.grid-cols-2 > div:nth-last-child(2) {
+    border-bottom: none;
+}
+
+/* Additional Info Section */
+.flex.justify-between.text-sm {
+    background: linear-gradient(135deg, #242926 0%, #2a302c 100%);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #323834;
+    margin-top: 0.5rem;
+}
+
+/* Complete Nutrition Section for Single View */
+.single-fruit-card .bg-\[\#2a302c\] {
+    background: linear-gradient(135deg, #2a302c 0%, #343a36 100%) !important;
+    border: 2px solid #3a403c !important;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Card Content Spacing - FIXED */
+.fruit-card .space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.fruit-card .space-y-2 > * + * {
+    margin-top: 0.5rem;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus, 
+a:focus,
+input:focus {
+    outline: 2px solid #e8e8e8;
+    outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growCard {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-grow {
+    animation: growCard 0.5s ease-out forwards;
+}
+
+.animate-delay-100 {
+    animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+    animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* Stagger animation for grid items */
+.fruit-grid-item {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fruit-grid-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Navbar scroll effect */
+.navbar-scrolled {
+    background-color: rgba(128, 0, 32, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #800020, #e8e8e8, #800020);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #800020 0%, #600015 100%);
+    color: #e8e8e8;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 8px 24px rgba(128, 0, 32, 0.4);
+    border: 1px solid #a00030;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #600015 0%, #400010 100%);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 32px rgba(128, 0, 32, 0.5);
+}
+
+/* Mobile Menu Styles */
+#navMenu {
+    transition: all 0.3s ease-in-out;
+}
+
+#navMenu.mobile-open {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #800020 0%, #600015 100%);
+    border-top: 1px solid #a00030;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+#navMenu.mobile-open .nav-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#navMenu.mobile-open .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Action Button Styles */
+.action-btn {
+    background: linear-gradient(135deg, #800020 0%, #600015 100%);
+    color: #e8e8e8;
+    border: 1px solid #a00030;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, #600015 0%, #400010 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(128, 0, 32, 0.4);
+}
+
+.action-btn.secondary {
+    background: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 100%);
+    color: #0c0f0a;
+    border: 1px solid #e8e8e8;
+}
+
+.action-btn.secondary:hover {
+    background: linear-gradient(135deg, #d4d4d4 0%, #a4a4a4 100%);
+}
+
+/* Button styles */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+/* Enhanced single fruit view */
+.single-fruit-card {
+    background: linear-gradient(145deg, #1a1f1c 0%, #232826 50%, #1a1f1c 100%) !important;
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.5),
+        0 16px 32px rgba(128, 0, 32, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .nav-btn {
+        min-width: 80px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Single fruit view on mobile */
+    .single-fruit-view {
+        padding: 1.5rem 0;
+        min-height: 60vh;
+    }
+    
+    .single-fruit-card {
+        max-width: 100% !important;
+        margin: 0 1rem !important;
+        padding: 2rem !important;
+        transform: scale(1.02) !important;
+    }
+    
+    .single-fruit-card .fruit-name {
+        font-size: 2.25rem !important;
+    }
+    
+    /* Mobile action buttons */
+    .flex-wrap {
+        justify-content: center;
+    }
+    
+    .flex-wrap .bg-\[\#1a1f1c\] {
+        order: -1;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .grid-view {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .fruit-card {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        margin: 0 0.5rem;
+    }
+    
+    .single-fruit-card {
+        margin: 0 0.5rem !important;
+        padding: 1.5rem !important;
+    }
+    
+    .single-fruit-card .fruit-name {
+        font-size: 2rem !important;
+    }
+    
+    .fruit-card .p-5 {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .fruit-card,
+    .fruit-grid-item,
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Loading state improvements */
+#loading {
+    transition: opacity 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1f1c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #800020 0%, #600015 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #600015 0%, #400010 100%);
+}
+
+/* Selection animation */
+@keyframes pulse-selected {
+    0% {
+        box-shadow: 0 0 0 0 rgba(232, 232, 232, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(232, 232, 232, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 232, 232, 0);
+    }
+}
+
+.fruit-card.selected {
+    animation: pulse-selected 2s infinite;
+}
+
+/* Container margins */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Main content spacing */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+/* Enhanced single fruit card appearance */
+.single-fruit-card {
+    position: relative;
+    z-index: 10;
+}
+
+.single-fruit-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #e8e8e8, #800020, #e8e8e8);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.1;
+    animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+}
+
+/* Nutrition Value Colors */
+.fruit-card .text-\[\#e8e8e8\].font-medium {
+    color: #f0f0f0 !important;
+    font-weight: 700;
+}
+
+/* Hover Effects for Nutrition Items */
+.grid.grid-cols-2 > div:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Enhanced Typography */
+.fruit-card h3 {
+    line-height: 1.2;
+}
+
+.fruit-card .text-sm {
+    line-height: 1.5;
+}
+
+/* Gradient Overlay on Hover */
+.fruit-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(128, 0, 32, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 18px;
+}
+
+.fruit-card:hover::after {
+    opacity: 1;
+}
+
+/* Card Content Spacing Enhancement */
+.fruit-card .p-5 > * + * {
+    margin-top: 1rem;
+}
+
+.fruit-card .space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.fruit-card .space-y-2 > * + * {
+    margin-top: 0.5rem;
+}
+
+/* Fruit Color System */
+.fruit-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.fruit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--fruit-primary, #800020), var(--fruit-accent, #e8e8e8), var(--fruit-primary, #800020));
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+.fruit-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fruit-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fruit-card.selected {
+    border-color: var(--fruit-accent, #e8e8e8) !important;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
+}
+
+/* Enhanced hover effects with fruit colors */
+.fruit-card:hover::before {
+    animation-duration: 1.5s;
+}
+
+/* Gradient text for fruit names */
+.gradient-text {
+    background: linear-gradient(135deg, currentColor 0%, rgba(255,255,255,0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Enhanced single fruit view with dynamic colors */
+.single-fruit-card {
+    max-width: 650px !important;
+    width: 100% !important;
+    transform: scale(1.08) !important;
+    margin: 0 auto !important;
+    padding: 2.5rem !important;
+    border-width: 3px !important;
+}
+
+.single-fruit-card::before {
+    height: 6px;
+    animation-duration: 2s;
+}
+
+/* Click indicator animation */
+.click-indicator {
+    animation: pulse-glow 2s ease-in-out infinite;
+    border-radius: 12px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        opacity: 0.7;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% { 
+        opacity: 1;
+        box-shadow: 0 0 20px currentColor;
+    }
+}
+
+/* Enhanced nutrition section */
+.fruit-card .rounded-lg {
+    transition: all 0.3s ease;
+}
+
+.fruit-card .rounded-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Color transitions */
+.fruit-card * {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+        /* Enhanced Navigation Styles */
+        .logout-btn {
+            transition: all 0.3s ease;
+            min-width: auto;
+            white-space: nowrap;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Mobile menu improvements */
+        #mobileNavMenu {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Better spacing for navigation items */
+        .nav-btn {
+            min-width: 110px;
+        }
+
+        /* Header improvements */
+        .container {
+            max-width: 1400px;
+        }
